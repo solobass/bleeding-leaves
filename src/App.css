@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+html, body {
+  overflow-x: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body, .site-root {
+  background: #000;
+  color: #fff;
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.site-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 3rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section {
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.gradient-heading {
+  background: linear-gradient(90deg, #fff 0%, #ffe066 2%, #ff8800 7%, #ff7300 30%, #d90429 60%, #7a0019 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 7vw;
+  margin: 2.5rem 0 2.5rem 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #b34700, 0 0 2px #b34700;
+}
+
+.featured-video-section .video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+.featured-video-section iframe {
+  max-width: 900px;
+  width: 100%;
+  height: 50vw;
+  max-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #000a;
+  display: block;
+  margin: 0 auto;
+}
+
+.experience-section .soundcloud-player-wrapper {
+  margin: 2rem auto 0 auto;
+  max-width: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px #000a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+.main-photo {
+  max-width: 90vw;
+  max-height: 60vh;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #000a;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.philosophy-section .bio-text {
+  color: #eee;
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  text-align: left;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+.philosophy-section .bio-text b {
+  color: #ff3c00;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.instagram-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+.instagram-section .gradient-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.instagram-placeholder {
+  background: #181818;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.instagram-embed-outer {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.instagram-embed-wrapper,
+.lightwidget-widget,
+.instagram-embed-wrapper iframe {
+  background: #000 !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  overflow-x: hidden !important;
+  padding: 0 !important;
+}
+
+.synthesis-section {
+  text-align: center;
+  width: 100%;
+}
+.synthesis-subtext {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.connect-button {
+  display: inline-block;
+  padding: 0.75em 2em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  background: #eee;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 16px #000a;
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 1.5rem;
+}
+.connect-button:hover {
+  background: #ccc;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.footer {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95rem;
+  padding: 2rem 0 1rem 0;
+  background: none;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .hero-title {
+    font-size: 2.5rem;
+    margin: 1rem 0 1rem 0;
+  }
+  .main-photo {
+    max-width: 98vw;
+    max-height: 40vh;
+  }
+  .featured-video-section .video-wrapper iframe {
+    height: 200px;
+    max-width: 100vw;
+  }
+}
