@@ -65,10 +65,9 @@ function App() {
       <div className="instagram-embed-outer">
         <section className="instagram-section">
           {/* LightWidget Instagram Embed */}
-          {/* If script is needed for advanced features, add to index.html */}
           <div className="instagram-embed-wrapper">
             <iframe
-              src="//lightwidget.com/widgets/328ff3445ebd5781acb3d2623d042fe8.html"
+              src="https://cdn.lightwidget.com/widgets/328ff3445ebd5781acb3d2623d042fe8.html"
               scrolling="no"
               allowtransparency="true"
               className="lightwidget-widget"
