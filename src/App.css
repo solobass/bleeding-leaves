@@ -179,8 +179,8 @@ section {
 .instagram-embed-wrapper,
 .snapwidget-widget,
 .instagram-embed-wrapper iframe {
-  width: 95vw !important;
-  max-width: 95vw !important;
+  width: 97vw !important;
+  max-width: 97vw !important;
   min-width: 0 !important;
   display: block;
   background: #000 !important;
@@ -191,6 +191,30 @@ section {
   padding: 0 !important;
   height: 280px !important;
   min-height: 230px !important;
+}
+
+@media (max-width: 1200px) {
+  .snapwidget-widget,
+  .instagram-embed-wrapper iframe {
+    height: 200px !important;
+    min-height: 150px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .snapwidget-widget,
+  .instagram-embed-wrapper iframe {
+    height: 170px !important;
+    min-height: 130px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .snapwidget-widget,
+  .instagram-embed-wrapper iframe {
+    height: 150px !important;
+    min-height: 110px !important;
+  }
 }
 
 .synthesis-section {
