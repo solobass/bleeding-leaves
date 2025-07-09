@@ -51,7 +51,9 @@ function App() {
         <h2 className="gradient-heading">Philosophy</h2>
         <div className="bio-text">
           Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a single moment in 1993 - unfolding in lyrical soundscapes, where blooming psychedelia <b>ECHOES</b> over Berlin's EDM underground.<br/>
+          <br/>
           Each piece is crafted live, using dozens of oscillators layered in real time to create immersive, one-of-a-kind experiences. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono, and Alan Hovhaness, alongside major performances at the Smithsonian Hirshhorn Museum, the United Nations, and venues across the globe.<br/>
+          <br/>
           Bleeding Leaves is driven by <b>DEEP</b> thoughts of urgent issues like the climate crisis and the future of technology, using sound to provoke reflection and sensory immersion. Based in New York's Capital District & Hudson Valley, the project invites listeners to enter a world where memory, analog synthesis and spoken word bleed into one another.
         </div>
       </section>
@@ -67,11 +69,11 @@ function App() {
           {/* LightWidget Instagram Embed */}
           <div className="instagram-embed-wrapper">
             <iframe
-              src="https://cdn.lightwidget.com/widgets/328ff3445ebd5781acb3d2623d042fe8.html"
+              src="https://cdn.lightwidget.com/widgets/dcc17f96ce465a06b1cee577c459938e.html"
               scrolling="no"
               allowtransparency="true"
               className="lightwidget-widget"
-              style={{ width: '100vw', border: 0, overflow: 'hidden', minHeight: '300px' }}
+              style={{ width: '100%', border: 0, overflow: 'hidden', minHeight: '300px' }}
               title="Instagram Feed"
             ></iframe>
           </div>
