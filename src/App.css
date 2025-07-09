@@ -158,9 +158,7 @@ section {
   background-color: #000;
 }
 .instagram-section .gradient-heading {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: left;
+  display: none !important;
 }
 .instagram-placeholder {
   background: #181818;
