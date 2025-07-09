@@ -67,7 +67,6 @@ function App() {
       {/* Instagram Turnstyle Section */}
       <div className="instagram-embed-outer">
         <section className="instagram-section">
-          <h2 className="gradient-heading">Instagram</h2>
           {/* SnapWidget Instagram Embed with proper container */}
           <div className="instagram-embed-wrapper">
             {/* SnapWidget */}
