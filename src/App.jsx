@@ -66,15 +66,18 @@ function App() {
       {/* Instagram Turnstyle Section */}
       <div className="instagram-embed-outer">
         <section className="instagram-section">
-          {/* LightWidget Instagram Embed */}
+          {/* SnapWidget Instagram Embed */}
           <div className="instagram-embed-wrapper">
-            <iframe
-              src="https://cdn.lightwidget.com/widgets/dcc17f96ce465a06b1cee577c459938e.html"
-              scrolling="no"
-              allowtransparency="true"
-              className="lightwidget-widget"
-              style={{ width: '100%', border: 0, overflow: 'hidden', minHeight: '300px' }}
-              title="Instagram Feed"
+            {/* SnapWidget */}
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <iframe 
+              src="https://snapwidget.com/embed/1102270" 
+              className="snapwidget-widget" 
+              allowtransparency="true" 
+              frameBorder="0" 
+              scrolling="no" 
+              style={{ border: 'none', overflow: 'hidden', width: '100%' }}
+              title="Posts from Instagram"
             ></iframe>
           </div>
         </section>
