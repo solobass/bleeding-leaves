@@ -1,6 +1,7 @@
 import './App.css';
 
 function App() {
+
   return (
     <div className="site-root">
       {/* Hero Section */}
@@ -66,7 +67,8 @@ function App() {
       {/* Instagram Turnstyle Section */}
       <div className="instagram-embed-outer">
         <section className="instagram-section">
-          {/* SnapWidget Instagram Embed */}
+          <h2 className="gradient-heading">Instagram</h2>
+          {/* SnapWidget Instagram Embed with proper container */}
           <div className="instagram-embed-wrapper">
             {/* SnapWidget */}
             <script src="https://snapwidget.com/js/snapwidget.js"></script>
@@ -76,6 +78,7 @@ function App() {
               allowtransparency="true" 
               frameBorder="0" 
               scrolling="no" 
+              loading="lazy"
               style={{ border: 'none', overflow: 'hidden', width: '100%' }}
               title="Posts from Instagram"
             ></iframe>
