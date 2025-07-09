@@ -7,6 +7,8 @@ html, body {
   overflow-x: hidden;
   padding: 0 !important;
   margin: 0 !important;
+  background: #000 !important;
+  background-color: #000 !important;
 }
 
 body, .site-root {
@@ -152,6 +154,8 @@ section {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   width: 100%;
+  background: #000;
+  background-color: #000;
 }
 .instagram-section .gradient-heading {
   font-size: 2rem;
@@ -174,7 +178,13 @@ section {
   margin: 0 auto;
   overflow-x: hidden;
   padding: 0;
+  background: #000;
+  background-color: #000;
+  position: relative;
+  min-height: 350px;
 }
+
+
 
 .instagram-embed-wrapper,
 .snapwidget-widget,
@@ -184,36 +194,42 @@ section {
   min-width: 0 !important;
   display: block;
   background: #000 !important;
+  background-color: #000 !important;
   border: none !important;
   box-shadow: none !important;
   margin: 0 auto !important;
-  overflow-x: hidden !important;
+  overflow: hidden !important;
   padding: 0 !important;
-  height: 280px !important;
-  min-height: 230px !important;
+  height: 350px !important;
+  min-height: 310px !important;
+  frameborder: 0 !important;
+  allowtransparency: true !important;
+  position: relative;
 }
+
+
 
 @media (max-width: 1200px) {
   .snapwidget-widget,
   .instagram-embed-wrapper iframe {
-    height: 200px !important;
-    min-height: 150px !important;
+    height: 330px !important;
+    min-height: 290px !important;
   }
 }
 
 @media (max-width: 900px) {
   .snapwidget-widget,
   .instagram-embed-wrapper iframe {
-    height: 170px !important;
-    min-height: 130px !important;
+    height: 310px !important;
+    min-height: 270px !important;
   }
 }
 
 @media (max-width: 700px) {
   .snapwidget-widget,
   .instagram-embed-wrapper iframe {
-    height: 150px !important;
-    min-height: 110px !important;
+    height: 290px !important;
+    min-height: 250px !important;
   }
 }
 
