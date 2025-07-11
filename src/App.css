@@ -185,52 +185,11 @@ section {
 
 
 
-.instagram-embed-wrapper,
-.snapwidget-widget,
-.instagram-embed-wrapper iframe {
-  width: 97vw !important;
-  max-width: 97vw !important;
-  min-width: 0 !important;
-  display: block;
-  background: #000 !important;
-  background-color: #000 !important;
-  border: none !important;
-  box-shadow: none !important;
-  margin: 0 auto !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  height: 340px !important;
-  min-height: 300px !important;
-  frameborder: 0 !important;
-  allowtransparency: true !important;
-  position: relative;
-}
 
 
 
-@media (max-width: 1200px) {
-  .snapwidget-widget,
-  .instagram-embed-wrapper iframe {
-    height: 320px !important;
-    min-height: 280px !important;
-  }
-}
 
-@media (max-width: 900px) {
-  .snapwidget-widget,
-  .instagram-embed-wrapper iframe {
-    height: 300px !important;
-    min-height: 260px !important;
-  }
-}
 
-@media (max-width: 700px) {
-  .snapwidget-widget,
-  .instagram-embed-wrapper iframe {
-    height: 280px !important;
-    min-height: 240px !important;
-  }
-}
 
 .synthesis-section {
   text-align: center;

@@ -64,26 +64,19 @@ function App() {
         <img src="/BleedingLeavesInstrument.png" alt="Bleeding Leaves Instrument" className="main-photo" />
       </section>
 
-      {/* Instagram Turnstyle Section */}
-      <div className="instagram-embed-outer">
-        <section className="instagram-section">
-          {/* SnapWidget Instagram Embed with proper container */}
-          <div className="instagram-embed-wrapper">
-            {/* SnapWidget */}
-            <script src="https://snapwidget.com/js/snapwidget.js"></script>
-            <iframe 
-              src="https://snapwidget.com/embed/1102270" 
-              className="snapwidget-widget" 
-              allowtransparency="true" 
-              frameBorder="0" 
-              scrolling="no" 
-              loading="lazy"
-              style={{ border: 'none', overflow: 'hidden', width: '100%' }}
-              title="Posts from Instagram"
-            ></iframe>
-          </div>
-        </section>
-      </div>
+      {/* Instagram Section */}
+      <section style={{ padding: '2rem 0', background: '#000', width: '100%' }}>
+        {/* SnapWidget Instagram Embed */}
+        <script src="https://snapwidget.com/js/snapwidget.js"></script>
+        <iframe 
+          src="https://snapwidget.com/embed/1102270" 
+          allowtransparency="true" 
+          frameBorder="0" 
+          scrolling="no" 
+          style={{ border: 'none', overflow: 'hidden', width: '100%' }}
+          title="Posts from Instagram"
+        ></iframe>
+      </section>
 
       {/* Synthesis Section */}
       <section className="synthesis-section">
