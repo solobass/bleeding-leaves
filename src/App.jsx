@@ -73,7 +73,7 @@ function App() {
           allowtransparency="true" 
           frameBorder="0" 
           scrolling="no" 
-          style={{ border: 'none', overflow: 'hidden', width: '100%' }}
+          style={{ border: 'none', overflow: 'hidden', width: '96vw', maxWidth: '96vw', display: 'block', marginLeft: '2vw' }}
           title="Posts from Instagram"
         ></iframe>
       </section>
