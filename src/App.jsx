@@ -69,21 +69,6 @@ function App() {
         <img src="/BleedingLeavesInstrument.png" alt="Bleeding Leaves Instrument" className="main-photo" />
       </section>
 
-      {/* Instagram Section */}
-      <section style={{ padding: '2rem 2rem 2rem 1rem', background: '#000', width: '100%' }}>
-        {/* SnapWidget Instagram Embed */}
-        <script src="https://snapwidget.com/js/snapwidget.js"></script>
-        <iframe 
-          src="https://snapwidget.com/embed/1102270" 
-          className="snapwidget-widget"
-          allowtransparency="true" 
-          frameBorder="0" 
-          scrolling="no" 
-          style={{ border: 'none', overflow: 'visible', width: '100%' }}
-          title="Posts from Instagram"
-        ></iframe>
-      </section>
-
       {/* Synthesis Section */}
       <section className="synthesis-section">
         <HeadingBackground>
@@ -91,6 +76,13 @@ function App() {
         </HeadingBackground>
         <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
         <a className="connect-button" href="mailto:bleedingleaves@gmail.com">Connect</a>
+      </section>
+
+      {/* Instagram Section */}
+      <section style={{ padding: '2rem 2rem 2rem 1rem', background: '#000', width: '100%' }}>
+        {/* Elfsight Instagram Feed | Bleeding Leaves Instagram */}
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div className="elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc" data-elfsight-app-lazy></div>
       </section>
 
       {/* Footer */}
