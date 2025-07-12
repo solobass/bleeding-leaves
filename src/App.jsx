@@ -56,7 +56,7 @@ function App() {
           <h2 className="gradient-heading">Philosophy</h2>
         </HeadingBackground>
         <div className="bio-text">
-          Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a perfect day in 1993 - unfolding in lyrical soundscapes, where blooming psychedelia <b>ECHOES</b> over Berlin's EDM underground.<br/>
+          Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a perfect day in 1993 - where lyrical soundscapes <b>ECHO</b> through Europe's underground.<br/>
           <br/>
           Each piece is crafted live, using dozens of oscillators layered in real time to create immersive, one-of-a-kind experiences. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono, and Alan Hovhaness, alongside performances at the Smithsonian Hirshhorn Museum, the United Nations, and venues across the globe.<br/>
           <br/>
@@ -70,7 +70,7 @@ function App() {
       </section>
 
       {/* Instagram Section */}
-      <section style={{ padding: '2rem 2rem', background: '#000', width: '100%' }}>
+      <section style={{ padding: '2rem 2rem 2rem 1rem', background: '#000', width: '100%' }}>
         {/* SnapWidget Instagram Embed */}
         <script src="https://snapwidget.com/js/snapwidget.js"></script>
         <iframe 
