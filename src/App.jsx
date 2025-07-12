@@ -1,5 +1,4 @@
 import './App.css';
-import { StarBorderHeading } from './components/custom/StarBorderHeading';
 
 function App() {
 
@@ -30,9 +29,7 @@ function App() {
 
       {/* Experience Section */}
       <section className="experience-section">
-        <StarBorderHeading>
-          <h2 className="gradient-heading">Experience</h2>
-        </StarBorderHeading>
+        <h2 className="gradient-heading">Experience</h2>
         <div className="soundcloud-player-wrapper">
           <iframe
             width="100%"
@@ -52,9 +49,7 @@ function App() {
 
       {/* Philosophy Section */}
       <section className="philosophy-section">
-        <StarBorderHeading>
-          <h2 className="gradient-heading">Philosophy</h2>
-        </StarBorderHeading>
+        <h2 className="gradient-heading">Philosophy</h2>
         <div className="bio-text">
           Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a single moment in 1993 - unfolding in lyrical soundscapes, where blooming psychedelia <b>ECHOES</b> over Berlin's EDM underground.<br/>
           <br/>
@@ -85,9 +80,7 @@ function App() {
 
       {/* Synthesis Section */}
       <section className="synthesis-section">
-        <StarBorderHeading>
-          <h2 className="gradient-heading">Synthesis</h2>
-        </StarBorderHeading>
+        <h2 className="gradient-heading">Synthesis</h2>
         <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
         <a className="connect-button" href="mailto:bleedingleaves@gmail.com">Connect</a>
       </section>
