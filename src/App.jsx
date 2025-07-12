@@ -58,7 +58,7 @@ function App() {
         <div className="bio-text">
           Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a perfect day in 1993 - where lyrical soundscapes <b>ECHO</b> through Europe's underground.<br/>
           <br/>
-          Each piece is crafted live, using dozens of oscillators layered in real time to create immersive, one-of-a-kind experiences. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono, and Alan Hovhaness, alongside performances at the Smithsonian Hirshhorn Museum, the United Nations, and venues across the globe.<br/>
+          Each piece is crafted live, using dozens of oscillators layered in real time to create immersive, one-of-a-kind experiences. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono & Alan Hovhaness, with globetrotting performances in unconventional spaces like the Smithsonian Hirshhorn Museum and United Nations.<br/>
           <br/>
           Bleeding Leaves is driven by <b>DEEP</b> thoughts of urgent issues like the climate crisis and the future of technology, using sound to provoke reflection and sensory immersion. Based in New York's Capital District & Hudson Valley, the project invites listeners to enter a world where memory, analog synthesis and spoken word bleed into one another.
         </div>
