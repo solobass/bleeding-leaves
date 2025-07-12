@@ -66,12 +66,30 @@ section {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
   text-align: center;
   text-transform: uppercase;
 }
+
+/* Section headings only (not hero title) */
+.experience-section .gradient-heading,
+.philosophy-section .gradient-heading,
+.synthesis-section .gradient-heading {
+  font-size: 4.5rem;
+}
+
+.star-border-heading-wrapper {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  width: 100%;
+}
+
+
 
 .hero-title {
   font-size: 9vw;
