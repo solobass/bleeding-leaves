@@ -56,7 +56,7 @@ function App() {
           <h2 className="gradient-heading">Philosophy</h2>
         </HeadingBackground>
         <div className="bio-text">
-          Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a perfect day in 1993 - where lyrical soundscapes <b>ECHO</b> through Europe's underground.<br/>
+          Bleeding Leaves is the sonic identity of Allan Von Schenkel, a project born from the memory of a perfect day in 1993 - where lyrical soundscapes <b>ECHO</b> from USA through Europe's underground.<br/>
           <br/>
           Each piece is crafted live, using dozens of oscillators layered in real time to create immersive, one-of-a-kind experiences. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono & Alan Hovhaness, with globetrotting performances in unconventional spaces like the Smithsonian Hirshhorn Museum and United Nations.<br/>
           <br/>
