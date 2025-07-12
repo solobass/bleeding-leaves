@@ -75,10 +75,11 @@ function App() {
         <script src="https://snapwidget.com/js/snapwidget.js"></script>
         <iframe 
           src="https://snapwidget.com/embed/1102270" 
+          className="snapwidget-widget"
           allowtransparency="true" 
           frameBorder="0" 
           scrolling="no" 
-          style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: '100%', display: 'block', margin: '0 auto' }}
+          style={{ border: 'none', overflow: 'hidden', width: '100%' }}
           title="Posts from Instagram"
         ></iframe>
       </section>
