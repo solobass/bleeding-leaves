@@ -78,6 +78,9 @@ function App() {
         <HeadingBackground>
           <h2 className="gradient-heading">Synthesis</h2>
         </HeadingBackground>
+        <div className="prospectus-text">
+          <p><strong>PROSPECTUS</strong> - Seeking performance opportunities designed for presentation within contemporary art museums and environments embracing of expansive and boundary-pushing electronic music. This project merges immersive sound design with conceptual and spatial elements, creating an experience that aligns with institutions dedicated to experimental, interdisciplinary, and avant-garde practices.</p>
+        </div>
       </section>
 
       {/* Connect Section */}
