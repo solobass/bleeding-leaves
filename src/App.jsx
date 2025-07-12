@@ -70,7 +70,7 @@ function App() {
       </section>
 
       {/* Instagram Section */}
-      <section style={{ padding: '2rem 0', background: '#000', width: '100%' }}>
+      <section style={{ padding: '2rem 0.25rem 2rem 2rem', background: '#000', width: '100%' }}>
         {/* SnapWidget Instagram Embed */}
         <script src="https://snapwidget.com/js/snapwidget.js"></script>
         <iframe 

@@ -7,8 +7,8 @@ interface HeadingBackgroundProps {
 
 export function HeadingBackground({ children, className }: HeadingBackgroundProps) {
   return (
-    <div className={`relative w-full py-8 mb-8 flex justify-center px-4 md:px-0 ${className || ''}`}>
-      <div className="relative w-full max-w-4xl">
+    <div className={`relative w-full py-8 mb-8 flex justify-center px-4 md:px-1 md:pr-0 ${className || ''}`}>
+      <div className="relative w-full max-w-7xl">
         {/* Animated background */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 opacity-40 rounded-lg">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
