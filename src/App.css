@@ -248,18 +248,35 @@ section {
   padding: 0.75em 2em;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #111;
-  background: #eee;
-  border: none;
+  color: #fff;
+  background: linear-gradient(90deg, #1f2937 0%, #374151 50%, #1f2937 100%);
+  border: 1px solid rgba(255, 60, 0, 0.4);
   border-radius: 8px;
   text-decoration: none;
   box-shadow: 0 2px 16px #000a;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
   margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.connect-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.5s ease;
 }
 .connect-button:hover {
-  background: #ccc;
-  transform: translateY(-2px) scale(1.04);
+  color: #ff3c00;
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 60, 0, 0.6);
+  box-shadow: 0 4px 20px rgba(255, 60, 0, 0.2);
+}
+.connect-button:hover::before {
+  left: 100%;
 }
 
 .footer {
