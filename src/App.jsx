@@ -30,9 +30,6 @@ function App() {
 
       {/* Experience Section */}
       <section className="experience-section">
-        <HeadingBackground>
-          <h2 className="gradient-heading">Experience</h2>
-        </HeadingBackground>
         <div className="soundcloud-player-wrapper">
           <iframe
             width="100%"
@@ -69,20 +66,24 @@ function App() {
         <img src="/BleedingLeavesInstrument.png" alt="Bleeding Leaves Instrument" className="main-photo" />
       </section>
 
-      {/* Synthesis Section */}
-      <section className="synthesis-section">
-        <HeadingBackground>
-          <h2 className="gradient-heading">Synthesis</h2>
-        </HeadingBackground>
-        <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
-        <a className="connect-button" href="mailto:bleedingleaves@gmail.com">Connect</a>
-      </section>
-
       {/* Instagram Section */}
       <section style={{ padding: '2rem 2rem 2rem 1rem', background: '#000', width: '100%' }}>
         {/* Elfsight Instagram Feed | Bleeding Leaves Instagram */}
         <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div className="elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc" data-elfsight-app-lazy></div>
+      </section>
+
+      {/* Synthesis Section */}
+      <section className="synthesis-section">
+        <HeadingBackground>
+          <h2 className="gradient-heading">Synthesis</h2>
+        </HeadingBackground>
+      </section>
+
+      {/* Connect Section */}
+      <section className="synthesis-section">
+        <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
+        <a className="connect-button" href="mailto:bleedingleaves@gmail.com">Connect</a>
       </section>
 
       {/* Footer */}
