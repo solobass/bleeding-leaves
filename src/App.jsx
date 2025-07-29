@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="site-root">
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: 'url(/moogbannershort.png)' }}>
+      <section className="hero-section">
         <div className="hero-content">
           <h1 className="gradient-heading hero-title">Bleeding Leaves</h1>
           <h2 className="subtitle">Live synthesis performance</h2>
@@ -24,6 +24,7 @@ function App() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"
           ></iframe>
         </div>
       </section>
@@ -37,6 +38,8 @@ function App() {
             scrolling="no"
             frameBorder="no"
             allow="autoplay"
+            title="Bleeding Leaves SoundCloud Player"
+            sandbox="allow-scripts allow-same-origin allow-presentation"
             src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bleeding-leaves/sets/bleeding-leaves&color=%23ff9900&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
           ></iframe>
         </div>
@@ -67,9 +70,8 @@ function App() {
       </section>
 
       {/* Instagram Section */}
-      <section className="instagram-section" style={{ padding: '2rem 1rem', background: '#000', width: '100%' }}>
+      <section className="instagram-section">
         {/* Elfsight Instagram Feed | Bleeding Leaves Instagram */}
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div className="elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc" data-elfsight-app-lazy></div>
       </section>
 
@@ -86,7 +88,7 @@ function App() {
       {/* Connect Section */}
       <section className="synthesis-section">
         <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
-        <a className="connect-button" href="mailto:bleedingleaves@gmail.com">Connect</a>
+        <a className="connect-button" href="mailto:bleedingleaves@gmail.com" rel="noopener noreferrer">Connect</a>
       </section>
 
       {/* Footer */}
