@@ -10,6 +10,8 @@ html, body {
   background-color: #000 !important;
   width: 100%;
   max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body, .site-root {
@@ -19,6 +21,8 @@ body, .site-root {
   font-family: 'Open Sans', Arial, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .site-root {
@@ -142,7 +146,7 @@ section {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-  background: linear-gradient(90deg, #181818 0%, #23272f 100%);
+  background: transparent;
   padding: 1.5rem 1rem;
   border: 2px solid rgba(255, 60, 0, 0.2);
   margin-bottom: 2rem;
@@ -151,7 +155,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #111827 0%, #23272f 100%);
+  background: transparent;
   opacity: 0.05;
   z-index: 0;
 }
@@ -216,6 +220,7 @@ section {
   width: 100%;
   background: #000;
   background-color: #000;
+  overflow: hidden;
 }
 .instagram-section .gradient-heading {
   display: none !important;
@@ -240,6 +245,19 @@ section {
   background-color: #000;
   position: relative;
   min-height: 380px;
+}
+
+/* Mobile Instagram widget improvements */
+@media (max-width: 700px) {
+  .instagram-embed-outer {
+    min-height: 300px;
+  }
+  
+  .elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 }
 
 
@@ -297,6 +315,9 @@ section {
   margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .connect-button::before {
   content: '';
@@ -339,11 +360,30 @@ section {
 .main-photo {
   transition: all 0.3s ease;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-photo:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 40px rgba(255, 60, 0, 0.3);
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  .main-photo:hover {
+    transform: none;
+    box-shadow: 0 4px 32px #000a;
+  }
+  
+  .connect-button:hover {
+    transform: none;
+    box-shadow: 0 2px 16px rgba(35,39,47,0.4);
+  }
+  
+  .featured-video-section iframe:hover {
+    transform: none;
+    box-shadow: 0 4px 32px #000a;
+  }
 }
 
 /* Enhanced Video Animations */
@@ -358,21 +398,24 @@ section {
 
 /* Animated Gradient for Hero Title */
 .gradient-heading.hero-title {
-  background: linear-gradient(270deg, #fff, #ffe066, #ff9900, #ff5500, #ff2222, #8b0000, #fff);
-  background-size: 400% 400%;
+  background: linear-gradient(270deg, #fff, #ffe066, #ff9900, #ff5500, #ff2222, #8b0000, #660000, #8b0000, #ff2222, #ff5500, #ff9900, #ffe066, #fff);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  animation: heroGradientShift 16s ease-in-out infinite;
+  animation: heroGradientShift 25s ease-in-out infinite;
 }
 
 @keyframes heroGradientShift {
-  0%, 100% {
+  0% {
     background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -382,51 +425,133 @@ section {
   }
   
   .hero-title {
-    font-size: 2.5rem;
-    margin: 1rem 0 1rem 0;
+    font-size: 3.5rem;
+    margin: 1.5rem 0 1.5rem 0;
+    line-height: 1.1;
   }
   
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
   
   /* Section headings only (not hero title) */
   .experience-section .gradient-heading,
   .philosophy-section .gradient-heading,
   .synthesis-section .gradient-heading {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    line-height: 1.1;
   }
   
   .main-photo {
-    max-width: 98vw;
-    max-height: 40vh;
+    max-width: 95vw;
+    max-height: 50vh;
+    border-radius: 12px;
+  }
+  
+  .featured-video-section .video-wrapper iframe {
+    height: 250px;
+    max-width: 95vw;
+    border-radius: 8px;
+  }
+  
+  .philosophy-section .bio-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 0.5rem;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .synthesis-subtext {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .connect-button {
+    font-size: 1.2rem;
+    padding: 1em 2em;
+    margin-bottom: 2rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .experience-section .soundcloud-player-wrapper {
+    margin: 1.5rem auto 0 auto;
+    padding: 1rem 0.5rem;
+  }
+  
+  .experience-section .soundcloud-player-wrapper iframe {
+    height: 350px;
+    width: 100%;
+  }
+  
+  .prospectus-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 0.5rem;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .footer {
+    padding: 2rem 1rem 1rem 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Instagram section mobile improvements */
+  section[style*="padding: 2rem 2rem 2rem 1rem"] {
+    padding: 2rem 1rem !important;
+  }
+  
+  /* Hero section mobile improvements */
+  .hero-section {
+    min-height: 50vh;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  
+  /* Star border heading wrapper mobile */
+  .star-border-heading-wrapper {
+    margin: 15px 0;
+    min-height: 80px;
+  }
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .experience-section .gradient-heading,
+  .philosophy-section .gradient-heading,
+  .synthesis-section .gradient-heading {
+    font-size: 3rem;
   }
   
   .featured-video-section .video-wrapper iframe {
     height: 200px;
-    max-width: 100vw;
-  }
-  
-  .philosophy-section .bio-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 0 1rem;
-  }
-  
-  .synthesis-subtext {
-    font-size: 1rem;
-  }
-  
-  .connect-button {
-    font-size: 1rem;
-    padding: 0.6em 1.5em;
-  }
-  
-  .experience-section .soundcloud-player-wrapper {
-    margin: 1rem auto 0 auto;
   }
   
   .experience-section .soundcloud-player-wrapper iframe {
     height: 300px;
+  }
+  
+  .connect-button {
+    font-size: 1.1rem;
+    padding: 0.8em 1.8em;
+  }
+  
+  .philosophy-section .bio-text,
+  .prospectus-text {
+    font-size: 1rem;
   }
 }

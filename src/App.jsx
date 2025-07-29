@@ -67,7 +67,7 @@ function App() {
       </section>
 
       {/* Instagram Section */}
-      <section style={{ padding: '2rem 2rem 2rem 1rem', background: '#000', width: '100%' }}>
+      <section className="instagram-section" style={{ padding: '2rem 1rem', background: '#000', width: '100%' }}>
         {/* Elfsight Instagram Feed | Bleeding Leaves Instagram */}
         <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div className="elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc" data-elfsight-app-lazy></div>
