@@ -11,15 +11,15 @@ export const useIntersectionObserver = (options = {}) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasIntersected) {
           setIsIntersecting(true);
           setHasIntersected(true);
         }
         // Don't set to false to prevent flickering
       },
       {
-        threshold: 0.5,
-        rootMargin: '0px 0px -200px 0px',
+        threshold: 0.2,
+        rootMargin: '0px 0px -150px 0px',
         ...options
       }
     );
@@ -31,8 +31,8 @@ export const useIntersectionObserver = (options = {}) => {
         observer.unobserve(element);
       }
     };
-  }, [options]);
+  }, [options, hasIntersected]);
 
-  // Always return true once intersected to prevent flickering
+  // Return hasIntersected to prevent flickering
   return [elementRef, hasIntersected, hasIntersected];
 }; 

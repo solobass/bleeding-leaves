@@ -20,7 +20,7 @@ const ScrollProgress = () => {
         setIsVisible(scrollTop > heroHeight * 0.3);
       }
 
-      // Simple section detection based on scroll position
+      // Improved section detection based on scroll position
       const sections = document.querySelectorAll('section[id]');
       const windowHeight = window.innerHeight;
       
@@ -29,8 +29,9 @@ const ScrollProgress = () => {
         const sectionTop = rect.top + window.scrollY;
         const sectionHeight = rect.height;
         
-        if (scrollTop >= sectionTop - windowHeight * 0.5 && 
-            scrollTop < sectionTop + sectionHeight - windowHeight * 0.5) {
+        // More precise detection to prevent jumping
+        if (scrollTop >= sectionTop - windowHeight * 0.3 && 
+            scrollTop < sectionTop + sectionHeight - windowHeight * 0.3) {
           setCurrentSection(section.id);
         }
       });

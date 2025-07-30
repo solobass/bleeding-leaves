@@ -106,13 +106,11 @@ function App() {
             <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
             <a className="connect-button" href="mailto:bleedingleaves@gmail.com" rel="noopener noreferrer">Connect</a>
           </div>
+          <div className="footer-content stagger-item">
+            <p className="footer-text">© 2025 Bleeding Leaves. All rights reserved.</p>
+          </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        © 2025 Bleeding Leaves. All rights reserved.
-      </footer>
     </div>
   );
 }
