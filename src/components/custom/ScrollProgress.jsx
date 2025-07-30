@@ -11,6 +11,7 @@ const ScrollProgress = () => {
     let scrollTimeout;
     let lastScrollDirection = 'down';
     let lastScrollTop = 0;
+    let scrollStartTime = 0;
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -44,9 +45,10 @@ const ScrollProgress = () => {
         }
       });
 
-      // Handle scroll snapping with direction awareness
+      // Handle scroll snapping with improved logic
       if (!isScrolling) {
         isScrolling = true;
+        scrollStartTime = Date.now();
         
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
@@ -56,33 +58,45 @@ const ScrollProgress = () => {
           const windowHeight = window.innerHeight;
           let targetSection = null;
           
+          // Get current scroll position
+          const currentScrollTop = window.scrollY;
+          
           if (scrollDirection === 'down') {
-            // Find next section when scrolling down
+            // Find the next section that's not fully visible
             for (let i = 0; i < sections.length; i++) {
               const rect = sections[i].getBoundingClientRect();
-              if (rect.top > windowHeight * 0.2) {
+              const sectionTop = rect.top;
+              const sectionHeight = rect.height;
+              
+              // Only snap if we're scrolling down and the section is partially visible
+              if (sectionTop > 0 && sectionTop < windowHeight * 0.8) {
                 targetSection = sections[i];
                 break;
               }
             }
           } else {
-            // Find previous section when scrolling up
+            // Find the previous section when scrolling up
             for (let i = sections.length - 1; i >= 0; i--) {
               const rect = sections[i].getBoundingClientRect();
-              if (rect.top < -windowHeight * 0.2) {
+              const sectionTop = rect.top;
+              const sectionHeight = rect.height;
+              
+              // Only snap if we're scrolling up and the section is above viewport
+              if (sectionTop < 0 && sectionTop > -windowHeight * 0.8) {
                 targetSection = sections[i];
                 break;
               }
             }
           }
           
-          if (targetSection) {
+          // Only snap if we found a target and the scroll was intentional
+          if (targetSection && Date.now() - scrollStartTime > 100) {
             targetSection.scrollIntoView({ 
               behavior: 'smooth', 
               block: 'start' 
             });
           }
-        }, 200);
+        }, 300); // Increased delay for more stable detection
       }
     };
 
