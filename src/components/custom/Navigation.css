@@ -140,13 +140,13 @@ html {
 
 /* Enhanced scroll snap for guided journey */
 .site-root {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scroll-padding-top: 0;
 }
 
 section {
   scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  scroll-snap-stop: always;
   min-height: 100vh;
   scroll-margin-top: 0;
 }
@@ -176,7 +176,7 @@ section {
   min-height: 100vh;
 }
 
-/* Gentle section transition animations - no bouncing */
+/* Gentle section transition animations - no flickering */
 section {
   opacity: 0;
   transform: translateY(20px);

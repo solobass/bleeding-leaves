@@ -27,8 +27,8 @@ function App() {
       </section>
 
       {/* Featured Video Section */}
-      <section id="video" ref={videoRef} className="featured-video-section">
-        <div className="video-wrapper">
+      <section id="video" ref={videoRef} className={`featured-video-section section-animate ${videoIntersecting ? 'animate' : ''}`}>
+        <div className="video-wrapper stagger-item">
           <iframe
             width="560"
             height="315"

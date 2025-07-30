@@ -5,49 +5,8 @@ const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    let scrollTimeout;
-    let lastScrollTop = 0;
-    let scrollStartTime = 0;
-    let isUserScrolling = false;
-
-    const sections = [
-      { id: 'hero', label: 'Home' },
-      { id: 'video', label: 'Video' },
-      { id: 'music-gallery', label: 'Music' },
-      { id: 'philosophy', label: 'Philosophy' },
-      { id: 'gallery-social', label: 'Gallery' },
-      { id: 'synthesis-connect', label: 'Synthesis' }
-    ];
-
-    const getCurrentSectionIndex = () => {
-      return sections.findIndex(section => section.id === currentSection);
-    };
-
-    const smoothScrollToSection = (sectionId) => {
-      if (isTransitioning) return;
-      
-      setIsTransitioning(true);
-      const element = document.getElementById(sectionId);
-      
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
-        });
-        
-        // Update current section after a short delay
-        setTimeout(() => {
-          setCurrentSection(sectionId);
-          setIsTransitioning(false);
-        }, 500);
-      } else {
-        setIsTransitioning(false);
-      }
-    };
-
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -61,50 +20,27 @@ const ScrollProgress = () => {
         setIsVisible(scrollTop > heroHeight * 0.3);
       }
 
-      // Determine if user is actively scrolling
-      const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
-      const scrollDistance = Math.abs(scrollTop - lastScrollTop);
+      // Simple section detection based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+      const windowHeight = window.innerHeight;
       
-      if (scrollDistance > 50) {
-        isUserScrolling = true;
-        scrollStartTime = Date.now();
-        clearTimeout(scrollTimeout);
-      }
-
-      lastScrollTop = scrollTop;
-
-      // Handle guided section progression
-      scrollTimeout = setTimeout(() => {
-        if (isUserScrolling && !isTransitioning) {
-          isUserScrolling = false;
-          
-          const currentIndex = getCurrentSectionIndex();
-          const windowHeight = window.innerHeight;
-          const scrollThreshold = windowHeight * 0.3; // Much more sensitive
-          
-          if (scrollDirection === 'down' && scrollDistance > scrollThreshold) {
-            // Move to next section
-            if (currentIndex < sections.length - 1) {
-              const nextSection = sections[currentIndex + 1];
-              smoothScrollToSection(nextSection.id);
-            }
-          } else if (scrollDirection === 'up' && scrollDistance > scrollThreshold) {
-            // Move to previous section
-            if (currentIndex > 0) {
-              const prevSection = sections[currentIndex - 1];
-              smoothScrollToSection(prevSection.id);
-            }
-          }
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionHeight = rect.height;
+        
+        if (scrollTop >= sectionTop - windowHeight * 0.5 && 
+            scrollTop < sectionTop + sectionHeight - windowHeight * 0.5) {
+          setCurrentSection(section.id);
         }
-      }, 800); // Much longer delay for gentler experience
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
     };
-  }, [currentSection, isTransitioning]);
+  }, []);
 
   const sections = [
     { id: 'hero', label: 'Home' },
