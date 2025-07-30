@@ -140,12 +140,38 @@ html {
 
 /* Enhanced scroll snap for guided journey */
 .site-root {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 }
 
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  min-height: 100vh;
+}
+
+/* Ensure sections take full viewport height for better snapping */
+.hero-section {
+  min-height: 100vh;
+}
+
+.featured-video-section {
+  min-height: 100vh;
+}
+
+.music-gallery-section {
+  min-height: 100vh;
+}
+
+.philosophy-section {
+  min-height: 100vh;
+}
+
+.gallery-social-section {
+  min-height: 100vh;
+}
+
+.synthesis-connect-section {
+  min-height: 100vh;
 }
 
 /* Section transition animations */
