@@ -641,9 +641,9 @@ section {
 .footer-content {
   width: 100%;
   text-align: center;
-  padding: 2rem 0 4rem 0; /* Added bottom padding for more space */
+  padding: 2rem 0 6rem 0; /* Increased bottom padding for more breathing room */
   border-top: 1px solid rgba(255, 60, 0, 0.1);
-  margin-top: 2rem;
+  margin-top: 1rem; /* Reduced space between Connect button and footer text */
 }
 
 .footer-text {
