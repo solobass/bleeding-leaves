@@ -15,11 +15,10 @@ export const useIntersectionObserver = (options = {}) => {
           setIsIntersecting(true);
           setHasIntersected(true);
         }
-        // Don't set to false to prevent flickering
       },
       {
-        threshold: 0.2,
-        rootMargin: '0px 0px -150px 0px',
+        threshold: 0.05, // Very low threshold for early detection
+        rootMargin: '0px 0px -300px 0px', // Very large margin to prevent re-triggering
         ...options
       }
     );
@@ -33,6 +32,6 @@ export const useIntersectionObserver = (options = {}) => {
     };
   }, [options, hasIntersected]);
 
-  // Return hasIntersected to prevent flickering
-  return [elementRef, hasIntersected, hasIntersected];
+  // Always return true to prevent any animation triggering
+  return [elementRef, true, true];
 }; 

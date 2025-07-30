@@ -177,48 +177,47 @@ section {
   min-height: 100vh;
 }
 
-/* Gentle fade-in animations - no flickering */
+/* Completely remove animations to eliminate flickering */
 section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-}
-
-section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  transition: none;
 }
 
-/* Enhanced section animations for guided journey - elegant */
 .section-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 2s ease-out, transform 2s ease-out;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .section-animate.animate {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-/* Stagger animation for elements within sections - elegant */
+.stagger-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .section-animate .stagger-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .section-animate.animate .stagger-item {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-/* Progressive stagger delays for elegant reveal */
-.section-animate.animate .stagger-item:nth-child(1) { transition-delay: 0.3s; }
-.section-animate.animate .stagger-item:nth-child(2) { transition-delay: 0.6s; }
-.section-animate.animate .stagger-item:nth-child(3) { transition-delay: 0.9s; }
-.section-animate.animate .stagger-item:nth-child(4) { transition-delay: 1.2s; }
-.section-animate.animate .stagger-item:nth-child(5) { transition-delay: 1.5s; }
+/* Remove all stagger delays */
+.section-animate.animate .stagger-item:nth-child(1) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(2) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(3) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(4) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(5) { transition-delay: 0s; }
 
 /* Make video section always visible */
 .featured-video-section {
