@@ -162,6 +162,7 @@ section {
 
 .music-gallery-section {
   min-height: 100vh;
+  scroll-margin-top: -50px; /* Reduced from -100px to be less aggressive */
 }
 
 .philosophy-section {
@@ -176,67 +177,51 @@ section {
   min-height: 100vh;
 }
 
-/* Stable section animations - no reloading */
+/* Simple, stable sections - no animations to prevent flickering */
 section {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   transition: none;
 }
 
-/* Enhanced section animations for guided journey - stable */
+/* Remove all complex animations to prevent flickering */
 .section-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .section-animate.animate {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-/* Once animated, stay animated */
-.section-animate.animate {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Stagger animation for elements within sections - stable */
+/* Remove stagger animations to prevent flickering */
 .section-animate .stagger-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .section-animate.animate .stagger-item {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-/* Once animated, stay animated */
-.section-animate.animate .stagger-item {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Progressive stagger delays for guided journey */
-.section-animate.animate .stagger-item:nth-child(1) { transition-delay: 0.3s; }
-.section-animate.animate .stagger-item:nth-child(2) { transition-delay: 0.6s; }
-.section-animate.animate .stagger-item:nth-child(3) { transition-delay: 0.9s; }
-.section-animate.animate .stagger-item:nth-child(4) { transition-delay: 1.2s; }
-.section-animate.animate .stagger-item:nth-child(5) { transition-delay: 1.5s; }
+/* Remove all transition delays */
+.section-animate.animate .stagger-item:nth-child(1) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(2) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(3) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(4) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(5) { transition-delay: 0s; }
 
 /* Make video section always visible */
 .featured-video-section {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: none !important;
 }
 
 .featured-video-section .video-wrapper {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: none !important;
 } 
