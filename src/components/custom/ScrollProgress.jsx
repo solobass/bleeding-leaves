@@ -5,23 +5,54 @@ const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    let isScrolling = false;
     let scrollTimeout;
-    let lastScrollDirection = 'down';
     let lastScrollTop = 0;
     let scrollStartTime = 0;
+    let isUserScrolling = false;
+
+    const sections = [
+      { id: 'hero', label: 'Home' },
+      { id: 'video', label: 'Video' },
+      { id: 'music-gallery', label: 'Music' },
+      { id: 'philosophy', label: 'Philosophy' },
+      { id: 'gallery-social', label: 'Gallery' },
+      { id: 'synthesis-connect', label: 'Synthesis' }
+    ];
+
+    const getCurrentSectionIndex = () => {
+      return sections.findIndex(section => section.id === currentSection);
+    };
+
+    const smoothScrollToSection = (sectionId) => {
+      if (isTransitioning) return;
+      
+      setIsTransitioning(true);
+      const element = document.getElementById(sectionId);
+      
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+        
+        // Update current section after a short delay
+        setTimeout(() => {
+          setCurrentSection(sectionId);
+          setIsTransitioning(false);
+        }, 500);
+      } else {
+        setIsTransitioning(false);
+      }
+    };
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
-
-      // Determine scroll direction
-      const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
-      lastScrollTop = scrollTop;
 
       // Show navigation after scrolling past hero section
       const heroSection = document.getElementById('hero');
@@ -30,74 +61,42 @@ const ScrollProgress = () => {
         setIsVisible(scrollTop > heroHeight * 0.3);
       }
 
-      // Update current section based on scroll position
-      const sections = document.querySelectorAll('section[id]');
-      const windowHeight = window.innerHeight;
+      // Determine if user is actively scrolling
+      const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+      const scrollDistance = Math.abs(scrollTop - lastScrollTop);
       
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const sectionTop = rect.top + window.scrollY;
-        const sectionHeight = rect.height;
-        
-        if (scrollTop >= sectionTop - windowHeight * 0.5 && 
-            scrollTop < sectionTop + sectionHeight - windowHeight * 0.5) {
-          setCurrentSection(section.id);
-        }
-      });
-
-      // Handle scroll snapping with improved logic
-      if (!isScrolling) {
-        isScrolling = true;
+      if (scrollDistance > 50) {
+        isUserScrolling = true;
         scrollStartTime = Date.now();
-        
         clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          isScrolling = false;
-          
-          const sections = document.querySelectorAll('section[id]');
-          const windowHeight = window.innerHeight;
-          let targetSection = null;
-          
-          // Get current scroll position
-          const currentScrollTop = window.scrollY;
-          
-          if (scrollDirection === 'down') {
-            // Find the next section that's not fully visible
-            for (let i = 0; i < sections.length; i++) {
-              const rect = sections[i].getBoundingClientRect();
-              const sectionTop = rect.top;
-              const sectionHeight = rect.height;
-              
-              // Only snap if we're scrolling down and the section is partially visible
-              if (sectionTop > 0 && sectionTop < windowHeight * 0.8) {
-                targetSection = sections[i];
-                break;
-              }
-            }
-          } else {
-            // Find the previous section when scrolling up
-            for (let i = sections.length - 1; i >= 0; i--) {
-              const rect = sections[i].getBoundingClientRect();
-              const sectionTop = rect.top;
-              const sectionHeight = rect.height;
-              
-              // Only snap if we're scrolling up and the section is above viewport
-              if (sectionTop < 0 && sectionTop > -windowHeight * 0.8) {
-                targetSection = sections[i];
-                break;
-              }
-            }
-          }
-          
-          // Only snap if we found a target and the scroll was intentional
-          if (targetSection && Date.now() - scrollStartTime > 100) {
-            targetSection.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
-            });
-          }
-        }, 300); // Increased delay for more stable detection
       }
+
+      lastScrollTop = scrollTop;
+
+      // Handle guided section progression
+      scrollTimeout = setTimeout(() => {
+        if (isUserScrolling && !isTransitioning) {
+          isUserScrolling = false;
+          
+          const currentIndex = getCurrentSectionIndex();
+          const windowHeight = window.innerHeight;
+          const scrollThreshold = windowHeight * 0.3; // Much more sensitive
+          
+          if (scrollDirection === 'down' && scrollDistance > scrollThreshold) {
+            // Move to next section
+            if (currentIndex < sections.length - 1) {
+              const nextSection = sections[currentIndex + 1];
+              smoothScrollToSection(nextSection.id);
+            }
+          } else if (scrollDirection === 'up' && scrollDistance > scrollThreshold) {
+            // Move to previous section
+            if (currentIndex > 0) {
+              const prevSection = sections[currentIndex - 1];
+              smoothScrollToSection(prevSection.id);
+            }
+          }
+        }
+      }, 800); // Much longer delay for gentler experience
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -105,7 +104,7 @@ const ScrollProgress = () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(scrollTimeout);
     };
-  }, []);
+  }, [currentSection, isTransitioning]);
 
   const sections = [
     { id: 'hero', label: 'Home' },
