@@ -15,12 +15,16 @@ export const useIntersectionObserver = (options = {}) => {
           setIsIntersecting(true);
           setHasIntersected(true);
         } else {
-          setIsIntersecting(false);
+          // Only set to false if we haven't intersected yet
+          // This prevents reloading animations
+          if (!hasIntersected) {
+            setIsIntersecting(false);
+          }
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px',
         ...options
       }
     );
@@ -32,7 +36,8 @@ export const useIntersectionObserver = (options = {}) => {
         observer.unobserve(element);
       }
     };
-  }, [options]);
+  }, [options, hasIntersected]);
 
-  return [elementRef, isIntersecting, hasIntersected];
+  // Return hasIntersected instead of isIntersecting to prevent reloading
+  return [elementRef, hasIntersected, hasIntersected];
 }; 
