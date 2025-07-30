@@ -1,0 +1,132 @@
+.scroll-progress-container {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.scroll-progress-bar {
+  width: 4px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-progress-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, #ff3c00, #ff8800, #ffe066);
+  border-radius: 2px;
+  transition: height 0.3s ease;
+  height: 0%;
+}
+
+.scroll-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.scroll-section-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.scroll-section-dot:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.scroll-section-dot.active {
+  opacity: 1;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 60, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.scroll-section-dot.active .dot {
+  background: #ff3c00;
+  border-color: #ff3c00;
+  box-shadow: 0 0 10px rgba(255, 60, 0, 0.5);
+  transform: scale(1.2);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 80px;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.scroll-section-dot.active .section-label {
+  color: #ff3c00;
+  font-weight: 600;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .scroll-progress-container {
+    right: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .scroll-progress-bar {
+    height: 150px;
+  }
+  
+  .scroll-sections {
+    gap: 1rem;
+  }
+  
+  .section-label {
+    font-size: 0.6rem;
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-progress-container {
+    right: 0.5rem;
+  }
+  
+  .scroll-progress-bar {
+    width: 3px;
+    height: 120px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .section-label {
+    font-size: 0.5rem;
+    max-width: 50px;
+  }
+} 

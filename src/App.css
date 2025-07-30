@@ -30,6 +30,7 @@ body, .site-root {
   flex-direction: column;
   width: 100%;
   overflow-x: hidden;
+  padding-top: 0; /* Remove any top padding since nav is fixed */
 }
 
 section {
@@ -118,7 +119,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
   width: 100%;
 }
 .featured-video-section iframe {
@@ -448,6 +448,54 @@ section {
   transition: all 0.3s ease;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-animate.animate .main-photo {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Parallax effect for guided journey */
+.hero-section {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Enhanced section focus animations */
+.section-animate.animate {
+  animation: sectionFocus 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes sectionFocus {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Attention-grabbing animations for key elements */
+.gradient-heading {
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 60, 0, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 60, 0, 0.6);
+  }
 }
 
 .main-photo:hover {
@@ -476,11 +524,140 @@ section {
 /* Enhanced Video Animations */
 .featured-video-section iframe {
   transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .featured-video-section iframe:hover {
   transform: scale(1.01);
   box-shadow: 0 8px 40px rgba(255, 60, 0, 0.2);
+}
+
+/* Enhanced SoundCloud Animations */
+.soundcloud-player-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-animate.animate .soundcloud-player-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Grouped Sections Styles */
+.music-gallery-section {
+  padding: 4rem 2rem;
+}
+
+.music-gallery-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.gallery-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-social-section {
+  padding: 4rem 2rem;
+}
+
+.gallery-social-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.social-feed {
+  width: 100%;
+  text-align: center;
+}
+
+.social-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.instagram-feed {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px #000a;
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 60, 0, 0.2);
+  padding: 1.5rem;
+}
+
+/* Elfsight widget styling */
+.elfsight-app-4f56b067-6e69-4723-b858-936a7744f5fc {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.synthesis-connect-section {
+  padding: 4rem 2rem;
+}
+
+.synthesis-connect-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.synthesis-content {
+  width: 100%;
+  text-align: center;
+}
+
+.connect-content {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 60, 0, 0.2);
+}
+
+/* Mobile responsive for grouped sections */
+@media (max-width: 768px) {
+  .music-gallery-content,
+  .gallery-social-content,
+  .synthesis-connect-content {
+    gap: 2rem;
+  }
+  
+  .social-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .music-gallery-section,
+  .gallery-social-section,
+  .synthesis-connect-section {
+    padding: 3rem 1rem;
+  }
+  
+
 }
 
 /* Animated Gradient for Hero Title */
