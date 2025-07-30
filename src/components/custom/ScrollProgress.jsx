@@ -9,12 +9,18 @@ const ScrollProgress = () => {
   useEffect(() => {
     let isScrolling = false;
     let scrollTimeout;
+    let lastScrollDirection = 'down';
+    let lastScrollTop = 0;
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
+
+      // Determine scroll direction
+      const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+      lastScrollTop = scrollTop;
 
       // Show navigation after scrolling past hero section
       const heroSection = document.getElementById('hero');
@@ -38,7 +44,7 @@ const ScrollProgress = () => {
         }
       });
 
-      // Handle scroll snapping
+      // Handle scroll snapping with direction awareness
       if (!isScrolling) {
         isScrolling = true;
         
@@ -46,29 +52,37 @@ const ScrollProgress = () => {
         scrollTimeout = setTimeout(() => {
           isScrolling = false;
           
-          // Find the closest section and snap to it
           const sections = document.querySelectorAll('section[id]');
           const windowHeight = window.innerHeight;
-          let closestSection = null;
-          let minDistance = Infinity;
+          let targetSection = null;
           
-          sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.top);
-            
-            if (distance < minDistance && rect.top > -windowHeight * 0.3) {
-              minDistance = distance;
-              closestSection = section;
+          if (scrollDirection === 'down') {
+            // Find next section when scrolling down
+            for (let i = 0; i < sections.length; i++) {
+              const rect = sections[i].getBoundingClientRect();
+              if (rect.top > windowHeight * 0.2) {
+                targetSection = sections[i];
+                break;
+              }
             }
-          });
+          } else {
+            // Find previous section when scrolling up
+            for (let i = sections.length - 1; i >= 0; i--) {
+              const rect = sections[i].getBoundingClientRect();
+              if (rect.top < -windowHeight * 0.2) {
+                targetSection = sections[i];
+                break;
+              }
+            }
+          }
           
-          if (closestSection && minDistance > 50) {
-            closestSection.scrollIntoView({ 
+          if (targetSection) {
+            targetSection.scrollIntoView({ 
               behavior: 'smooth', 
               block: 'start' 
             });
           }
-        }, 150);
+        }, 200);
       }
     };
 

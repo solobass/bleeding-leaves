@@ -140,12 +140,12 @@ html {
 
 /* Enhanced scroll snap for guided journey */
 .site-root {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 section {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   min-height: 100vh;
 }
 
