@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div className="site-root">
-      <Navigation />
       <ScrollToTop />
       <ScrollProgress />
       
