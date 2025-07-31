@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="site-root">
+      <Navigation />
       <ScrollToTop />
       <ScrollProgress />
       
@@ -37,7 +38,7 @@ function App() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
           ></iframe>
         </div>
       </section>
@@ -53,7 +54,7 @@ function App() {
               frameBorder="no"
               allow="autoplay"
               title="Bleeding Leaves SoundCloud Player"
-              sandbox="allow-scripts allow-same-origin allow-presentation"
+              sandbox="allow-scripts allow-same-origin"
               src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bleeding-leaves/sets/bleeding-leaves&color=%23ff9900&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"
             ></iframe>
           </div>
