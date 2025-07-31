@@ -61,7 +61,7 @@ const ScrollProgress = () => {
         ></div>
       </div>
       <div className="scroll-sections">
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <div 
             key={section.id}
             className={`scroll-section-dot ${currentSection === section.id ? 'active' : ''}`}

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
 export const useIntersectionObserver = (options = {}) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasIntersected, setHasIntersected] = useState(false);
   const elementRef = useRef(null);
 
@@ -12,7 +11,6 @@ export const useIntersectionObserver = (options = {}) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasIntersected) {
-          setIsIntersecting(true);
           setHasIntersected(true);
         }
       },
