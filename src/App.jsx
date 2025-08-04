@@ -65,9 +65,9 @@ function App() {
 
       {/* Philosophy Section */}
       <section id="philosophy" ref={philosophyRef} className={`philosophy-section section-animate ${philosophyIntersecting ? 'animate' : ''}`}>
-        <HeadingBackground>
+        <div className="philosophy-heading-wrapper">
           <h2 className="gradient-heading stagger-item">Philosophy</h2>
-        </HeadingBackground>
+        </div>
         <div className="bio-text stagger-item">
           Bleeding Leaves is the <b>SONIC</b> identity of Allan Von Schenkel. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono & Alan Hovhaness, with globetrotting performances in unconventional spaces like the Smithsonian Hirshhorn Museum and United Nations.<br/>
           <br/>

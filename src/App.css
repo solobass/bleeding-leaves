@@ -207,10 +207,19 @@ section {
   margin: 0 auto;
 }
 
+.philosophy-heading-wrapper {
+  margin: 2rem auto 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  width: 100%;
+}
+
 .philosophy-section .bio-text {
   color: #eee;
   max-width: 1400px;
-  margin: 4rem auto 0 auto;
+  margin: 2rem auto 0 auto;
   text-align: left;
   font-size: 1.15rem;
   line-height: 1.7;
