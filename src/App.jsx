@@ -66,15 +66,17 @@ function App() {
       {/* Philosophy Section */}
       <section id="philosophy" ref={philosophyRef} className={`philosophy-section section-animate ${philosophyIntersecting ? 'animate' : ''}`}>
         <div className="philosophy-content">
-          <HeadingBackground>
-            <h2 className="gradient-heading stagger-item">Philosophy</h2>
-          </HeadingBackground>
-          <div className="bio-text stagger-item">
-            Bleeding Leaves is the <b>SONIC</b> identity of Allan Von Schenkel. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono & Alan Hovhaness, with globetrotting performances in unconventional spaces like the Smithsonian Hirshhorn Museum and United Nations.<br/>
-            <br/>
-            Each piece is crafted live, using dozens of oscillators, layered in real time to create immersive, one-of-a-kind experiences - a project inspired by the memory of a perfect day in the 1990s - relived during the performance, the lyrical soundscapes <b>ECHO</b> from the USA to Europe's underground. Forever heading east.<br/>
-            <br/>
-            Bleeding Leaves is driven by <b>DEEP</b> thoughts of urgent issues like the climate crisis and the future of technology, using sound to provoke reflection and sensory immersion. Based in New York's Capital District & Hudson Valley, the project invites listeners to enter a world where memory, analog synthesis and spoken word bleed into one another.
+          <div className="philosophy-text-content stagger-item">
+            <HeadingBackground>
+              <h2 className="gradient-heading">Philosophy</h2>
+            </HeadingBackground>
+            <div className="bio-text">
+              Bleeding Leaves is the <b>SONIC</b> identity of Allan Von Schenkel. His career includes collaborative premieres with legends such as Karlheinz Stockhausen, Yoko Ono & Alan Hovhaness, with globetrotting performances in unconventional spaces like the Smithsonian Hirshhorn Museum and United Nations.<br/>
+              <br/>
+              Each piece is crafted live, using dozens of oscillators, layered in real time to create immersive, one-of-a-kind experiences - a project inspired by the memory of a perfect day in the 1990s - relived during the performance, the lyrical soundscapes <b>ECHO</b> from the USA to Europe's underground. Forever heading east.<br/>
+              <br/>
+              Bleeding Leaves is driven by <b>DEEP</b> thoughts of urgent issues like the climate crisis and the future of technology, using sound to provoke reflection and sensory immersion. Based in New York's Capital District & Hudson Valley, the project invites listeners to enter a world where memory, analog synthesis and spoken word bleed into one another.
+            </div>
           </div>
         </div>
       </section>

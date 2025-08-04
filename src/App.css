@@ -232,6 +232,11 @@ section {
   margin: 0 auto;
 }
 
+.philosophy-text-content {
+  width: 100%;
+  text-align: center;
+}
+
 .philosophy-section .bio-text b {
   color: #ff3c00;
   font-weight: 900;
