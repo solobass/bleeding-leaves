@@ -584,7 +584,7 @@ section {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Reduced from 3rem to bring SoundCloud and image closer */
+  gap: 1rem; /* Reduced from 2rem to eliminate extra space below photo */
   align-items: center;
 }
 
