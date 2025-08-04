@@ -756,8 +756,17 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .philosophy-section .gradient-heading {
   margin-bottom: 3rem;
+  text-align: center;
 }
