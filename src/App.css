@@ -33,10 +33,6 @@ body, .site-root {
   overflow-x: hidden;
   scroll-snap-type: y proximity;
   background: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 /* Base section styles */
@@ -54,7 +50,6 @@ section {
   position: relative;
   overflow-x: hidden;
   max-width: 100vw;
-  margin: 0 auto;
 }
 
 .hero-section {
@@ -230,6 +225,7 @@ section {
   hyphens: auto;
   word-wrap: break-word;
 }
+
 .philosophy-section .bio-text b {
   color: #ff3c00;
   font-weight: 900;
@@ -753,13 +749,4 @@ section {
   .prospectus-text {
     font-size: 1rem;
   }
-}
-
-.philosophy-section {
-  /* Inherit base section styles and only override what's needed */
-  padding: 4rem 2rem;
-}
-
-.philosophy-section .gradient-heading {
-  margin-bottom: 3rem;
 }
