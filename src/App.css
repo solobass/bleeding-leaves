@@ -764,5 +764,5 @@ section {
 
 .philosophy-section {
   padding: 4rem 2rem;
-  justify-content: flex-start; /* Override center to remove extra top space */
+  justify-content: center; /* Match Synthesis section's vertical centering */
 }
