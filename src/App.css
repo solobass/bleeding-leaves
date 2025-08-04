@@ -30,6 +30,7 @@ body, .site-root {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y proximity;
   background: #000;
 }
@@ -47,6 +48,8 @@ section {
   box-sizing: border-box;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .hero-section {
@@ -207,24 +210,20 @@ section {
   margin: 0 auto;
 }
 
-.philosophy-heading-wrapper {
-  margin: 2rem auto 2rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80px;
-  width: 100%;
-}
+
 
 .philosophy-section .bio-text {
   color: #eee;
-  max-width: 1400px;
+  max-width: 900px;
   margin: 2rem auto 0 auto;
-  text-align: left;
+  text-align: justify;
   font-size: 1.15rem;
-  line-height: 1.7;
+  line-height: 1.8;
   width: 100%;
   padding: 0 2rem;
+  letter-spacing: 0.3px;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 .philosophy-section .bio-text b {
   color: #ff3c00;
@@ -313,8 +312,10 @@ section {
   .philosophy-section .bio-text {
     font-size: 1.1rem;
     line-height: 1.7;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     margin: 2rem auto 0 auto;
+    max-width: 95vw;
+    text-align: left;
   }
   
   .synthesis-subtext {
@@ -383,7 +384,7 @@ section {
 
 .prospectus-text {
   max-width: 900px;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto 3rem auto;
   text-align: left;
   color: #eee;
   font-size: 1.1rem;
@@ -747,4 +748,16 @@ section {
   .prospectus-text {
     font-size: 1rem;
   }
+}
+
+.philosophy-section {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.philosophy-section .gradient-heading {
+  margin-bottom: 3rem;
 }
