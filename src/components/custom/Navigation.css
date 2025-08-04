@@ -155,11 +155,17 @@ html {
   scroll-padding-top: 0;
 }
 
+/* Ensure sections maintain centering while adding scroll snap */
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   min-height: 100vh;
   scroll-margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* Ensure sections take full viewport height for better snapping */
