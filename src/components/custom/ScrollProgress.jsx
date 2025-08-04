@@ -4,42 +4,46 @@ import './ScrollProgress.css';
 const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState('hero');
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  console.log('ScrollProgress component mounted, current section:', currentSection);
+
 
   useEffect(() => {
-    const handleScroll = () => {
+    const checkScrollPosition = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
 
-      // Show navigation after scrolling past hero section
-      const heroSection = document.getElementById('hero');
-      if (heroSection) {
-        const heroHeight = heroSection.offsetHeight;
-        setIsVisible(scrollTop > heroHeight * 0.3);
-      }
-
-      // Improved section detection based on scroll position
+      // Find which section is most visible in the viewport
       const sections = document.querySelectorAll('section[id]');
       const windowHeight = window.innerHeight;
+      let mostVisibleSection = 'hero';
+      let maxVisibility = 0;
       
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        const sectionTop = rect.top + window.scrollY;
-        const sectionHeight = rect.height;
+        const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+        const visibility = visibleHeight / windowHeight;
         
-        // More precise detection to prevent jumping
-        if (scrollTop >= sectionTop - windowHeight * 0.3 && 
-            scrollTop < sectionTop + sectionHeight - windowHeight * 0.3) {
-          setCurrentSection(section.id);
+        if (visibility > maxVisibility) {
+          maxVisibility = visibility;
+          mostVisibleSection = section.id;
         }
       });
+      
+      console.log('Most visible section:', mostVisibleSection, 'Visibility:', maxVisibility);
+      setCurrentSection(mostVisibleSection);
+      
+      // Hide navigation on hero section
+      setIsVisible(mostVisibleSection !== 'hero');
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Check scroll position every 100ms instead of using scroll events
+    const interval = setInterval(checkScrollPosition, 100);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      clearInterval(interval);
     };
   }, []);
 
@@ -52,33 +56,35 @@ const ScrollProgress = () => {
     { id: 'synthesis-connect', label: 'Synthesis' }
   ];
 
+
+
   return (
     <div className={`scroll-progress-container ${isVisible ? 'visible' : ''}`}>
-      <div className="scroll-progress-bar">
-        <div 
-          className="scroll-progress-fill" 
-          style={{ width: `${scrollProgress}%` }}
-        ></div>
-      </div>
-      <div className="scroll-sections">
-        {sections.map((section) => (
+        <div className="scroll-progress-bar">
           <div 
-            key={section.id}
-            className={`scroll-section-dot ${currentSection === section.id ? 'active' : ''}`}
-            onClick={() => {
-              const element = document.getElementById(section.id);
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            title={section.label}
-          >
-            <span className="dot"></span>
-            <span className="section-label">{section.label}</span>
-          </div>
-        ))}
+            className="scroll-progress-fill" 
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
+        </div>
+        <div className="scroll-sections">
+          {sections.map((section) => (
+            <div 
+              key={section.id}
+              className={`scroll-section-dot ${currentSection === section.id ? 'active' : ''}`}
+              onClick={() => {
+                const element = document.getElementById(section.id);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                }
+              }}
+              title={section.label}
+            >
+              <span className="dot"></span>
+              <span className="section-label">{section.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
   );
 };
 

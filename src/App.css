@@ -25,21 +25,28 @@ body, .site-root {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Snap Scrolling Layout */
 .site-root {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  overflow-x: hidden;
-  padding-top: 0; /* Remove any top padding since nav is fixed */
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  background: #000;
 }
 
+/* Base section styles */
 section {
-  padding: 3rem 2rem;
   width: 100%;
-  box-sizing: border-box;
+  height: 100vh;
+  scroll-snap-align: start;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
 }
 
 .hero-section {
