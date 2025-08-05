@@ -13,6 +13,8 @@ function App() {
   const [gallerySocialRef, gallerySocialIntersecting] = useIntersectionObserver();
   const [synthesisConnectRef, synthesisConnectIntersecting] = useIntersectionObserver();
 
+
+
   return (
     <div className="site-root">
       <ScrollToTop />
