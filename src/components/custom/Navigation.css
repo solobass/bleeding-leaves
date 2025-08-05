@@ -173,7 +173,7 @@ section {
 
 .music-gallery-section {
   min-height: 100vh;
-  scroll-margin-top: -50px; /* Reduced from -100px to be less aggressive */
+  scroll-margin-top: -20px; /* Further reduced to position SoundCloud higher in viewport */
 }
 
 .philosophy-section {
