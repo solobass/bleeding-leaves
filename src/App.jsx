@@ -108,7 +108,7 @@ function App() {
           </div>
           <div className="connect-content stagger-item">
             <p className="synthesis-subtext">Get in touch for live performances and collaborations</p>
-            <a className="connect-button" href="mailto:bleedingleaves@gmail.com" rel="noopener noreferrer">Connect</a>
+            <a className="connect-button" href="mailto:bleedingleaves@gmail.com" rel="noopener noreferrer">CONNECT</a>
           </div>
           <div className="footer-content stagger-item">
             <p className="footer-text">© 2025 Bleeding Leaves. All rights reserved.</p>

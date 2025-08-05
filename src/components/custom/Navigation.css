@@ -1,3 +1,149 @@
+/* Navigation Component Styles */
+.navigation {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 60, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2rem 1rem;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.navigation.visible {
+  transform: translateY(-50%) translateX(0);
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 120px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #fff 0%, #ffe066 2%, #ff8800 7%, #ff7300 30%, #d90429 60%, #7a0019 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 60, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-link:hover {
+  color: #ff3c00;
+  transform: rotate(180deg) translateY(-2px);
+}
+
+.nav-link:hover::before {
+  left: 100%;
+}
+
+.nav-link.active {
+  color: #ff3c00;
+  background: rgba(255, 60, 0, 0.1);
+  border: 1px solid rgba(255, 60, 0, 0.3);
+}
+
+.nav-link.active::before {
+  display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .navigation {
+    padding: 1.5rem 0.8rem;
+    min-width: 100px;
+  }
+  
+  .nav-links {
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    padding: 1rem 0.5rem;
+    min-width: 80px;
+  }
+  
+  .nav-links {
+    gap: 0.6rem;
+  }
+  
+  .nav-link {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+}
+
 /* Smooth scroll behavior for the entire page */
 html {
   scroll-behavior: smooth;
@@ -14,4 +160,83 @@ section {
   scroll-snap-stop: always;
   min-height: 100vh;
   scroll-margin-top: 0;
+}
+
+/* Ensure sections take full viewport height for better snapping */
+.hero-section {
+  min-height: 100vh;
+}
+
+.featured-video-section {
+  min-height: 100vh;
+}
+
+.music-gallery-section {
+  min-height: 100vh;
+  scroll-margin-top: -50px; /* Reduced from -100px to be less aggressive */
+}
+
+.philosophy-section {
+  min-height: 100vh;
+}
+
+.gallery-social-section {
+  min-height: 100vh;
+}
+
+.synthesis-connect-section {
+  min-height: 100vh;
+}
+
+/* Completely remove animations to eliminate flickering */
+section {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section-animate {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section-animate.animate {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section-animate .stagger-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section-animate.animate .stagger-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* Remove all stagger delays */
+.section-animate.animate .stagger-item:nth-child(1) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(2) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(3) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(4) { transition-delay: 0s; }
+.section-animate.animate .stagger-item:nth-child(5) { transition-delay: 0s; }
+
+/* Make video section always visible */
+.featured-video-section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.featured-video-section .video-wrapper {
+  opacity: 1 !important;
+  transform: none !important;
 } 
